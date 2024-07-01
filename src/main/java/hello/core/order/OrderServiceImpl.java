@@ -4,7 +4,7 @@ import hello.core.discount.DiscountPolicy;
 
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
-import hello.core.member.MemoryMeberRepository;
+import hello.core.member.MemoryMemberRepository;
 
 public class OrderServiceImpl implements OrderService{
     private final MemberRepository memberRepository;
