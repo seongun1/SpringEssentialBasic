@@ -16,6 +16,9 @@ import org.springframework.context.annotation.Configuration;
 import java.text.FieldPosition;
 @Configuration //설정정보
 public class AppConfig {
+
+    //@Bean memberService -> new MemoryMemberRepository()
+    //@Bean orderService ->  new MemoryMemberRepository()
     @Bean // 이렇게 하면 스프링 컨테이너에 등록이 됨.
     public MemberService memberService(){
         return new MemberServiceImpl(memberRepository());
