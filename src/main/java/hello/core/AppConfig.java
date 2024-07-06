@@ -14,12 +14,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.text.FieldPosition;
-
-// 호출되는 순서
-//call AppConfig.memberService
-//call AppConfig.memberRepository
-//call AppConfig.orderService
-
 @Configuration //설정정보
 public class AppConfig {
 
@@ -27,19 +21,15 @@ public class AppConfig {
     //@Bean orderService ->  new MemoryMemberRepository()
     @Bean // 이렇게 하면 스프링 컨테이너에 등록이 됨.
     public MemberService memberService(){
-        System.out.println("call AppConfig.memberService");
         return new MemberServiceImpl(memberRepository());
         }
     @Bean
-    public MemberRepository memberRepository() {
-        System.out.println("call AppConfig.memberRepository");
+    private static MemberRepository memberRepository() {
         return new MemoryMemberRepository();
     }
     @Bean
     public OrderService orderService(){
-        System.out.println("call AppConfig.orderService");
-        return new OrderServiceImpl(memberRepository(),discountPolicy());
-
+            return new OrderServiceImpl(memberRepository(),discountPolicy());
         }
     @Bean
     public DiscountPolicy discountPolicy(){
